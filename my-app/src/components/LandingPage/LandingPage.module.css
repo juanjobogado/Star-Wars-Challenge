@@ -1,0 +1,30 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  header {
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btnLan {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btnLan:hover {
+    background-color: #0063aa;
+  }
+  

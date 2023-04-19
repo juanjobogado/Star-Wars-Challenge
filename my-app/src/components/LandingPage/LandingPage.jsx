@@ -1,22 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../LandingPage/LandingPage.css";
+import styles from "./LandingPage.module.css";
 
-export default function LandingPage(){
-return (
-    <div>
-        <div className="containerLanding">
-            <div>
-                <h1>Star Wars Challenge</h1>
-            </div>
-            <div className="btnLanding">
-                <Link to = "/home">
-                    <button className="btnLan">
-                        START
-                    </button>
-                </Link>
-            </div>
-        </div>
-    </div>
-)
+export default function LandingPage() {
+  return (
+    <main className={styles.container}>
+      <header>
+        <h1>Star Wars Challenge</h1>
+      </header>
+      <div className={styles.btn}>
+        <Link to="/home">
+          <button className={styles.btnLan}>START</button>
+        </Link>
+      </div>
+    </main>
+  );
 };

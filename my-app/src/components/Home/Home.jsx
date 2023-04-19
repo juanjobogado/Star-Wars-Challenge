@@ -1,13 +1,21 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import Card from "../Card/Card";
 import { getFilms } from "../../redux/actions";
 
-
+function renderMovies(films) {
+    return films.map((film, movie) => (
+        <Card
+            key={film.episode_id}
+            title={film.title}
+            episode_id={film.episode_id}
+            director={film.director}
+            movie={movie+1}
+        />
+    ));
+}
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -20,18 +28,12 @@ export default function Home() {
         }
     }, [dispatch])
 
-    return(
+    return (
         <div className={styles.containerHome}>
-            <div className={styles.cards}>
-            { films.map((c, movie) => (
-                <Card
-                title={c.title}
-                episode_id={c.episode_id}
-                director={c.director}
-                movie={movie+1}
-                />
-            )) }
-            </div>
+          <Link to="/">
+            <button className={styles.backButton}>Back</button>
+          </Link>
+          <div className={styles.cards}>{renderMovies(films)}</div>
         </div>
-    );
+      );
 };

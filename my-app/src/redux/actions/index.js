@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_FILMS, GET_CHARACTERS } from "./actions";
+import { GET_FILMS, GET_CHARACTERS, FILTER_CHARACTERS_EYECOLOR, FILTER_CHARACTERS_GENDER } from "./actions";
 
 export function getFilms() {
     return async function (dispatch){
@@ -17,67 +17,13 @@ export function getFilms() {
     }
 };
 
-// export function getCharacters(movie) {
-//     return async function (dispatch){
-//         try {
-//             // console.log("entró a la funcion")
-//             const json = await axios.get(`https://swapi.dev/api/films/${movie}`);
-//             console.log(json.data)
-//             console.log("HPÑA")
-//             // const allCharacters = json.data.results.characters.map(async (c) => {
-//             //     const jsonCharacters = await axios.get(c)
-//             //     return jsonCharacters;
-                
-//             // });
-//             const allCharactersPromises = json.data.results.characters.map(async (c) => {
-//                 const jsonCharacters = await axios.get(c);
-//                 return jsonCharacters.data;
-//               });
-//               const allCharactersPromise = Promise.all(allCharactersPromises);
-              
-//               allCharactersPromise.then((allCharacters) => {
-//                 console.log(allCharactersPromises);
-//               });
-//             return dispatch({
-//                 type: GET_CHARACTERS,
-//                 payload: allCharactersPromise
-//             })
-//         } catch (error) {
-//             console.log(error.message);
-//             return error;
-//         }
-//     }
-// };
-
-// export function getCharacters(movie) {
-//     return async function (dispatch) {
-//       try {
-//         const response = await axios.get(`https://swapi.dev/api/films/?search=${movie}`);
-//         const characterUrls = response.data.results.characters;
-//         const characters = await Promise.all(
-//           characterUrls?.map(async (url) => {
-//             const characterResponse = await axios.get(url);
-//             return characterResponse.data;
-//           })
-//         );
-//         return dispatch({
-//           type: GET_CHARACTERS,
-//           payload: characters,
-//         });
-//       } catch (error) {
-//         console.log(error.message);
-//         return error;
-//       }
-//     };
-//   }
-
 export function getCharacters(movie) {
     return async function (dispatch) {
       try {
         const response = await axios.get(`https://swapi.dev/api/films/${movie}/`);
         if (response.data.characters) {
           let characters = response.data?.characters
-         
+        
           let characterData = await Promise.all(characters.map(async (character) => {
             let characterResponse = await axios.get(character);
             return characterResponse.data;
@@ -96,3 +42,18 @@ export function getCharacters(movie) {
       }
     };
   };
+
+  export function filterCharactersEyeColor(payload){
+    return {
+      type: FILTER_CHARACTERS_EYECOLOR,
+      payload
+    }
+  };
+
+  export function filterCharactersGender(payload){
+    return {
+      type: FILTER_CHARACTERS_GENDER,
+      payload
+    }
+  };
+  
