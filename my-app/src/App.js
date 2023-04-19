@@ -11,7 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/home" component={Home} />
-        <Route exact path="/characters" component={Characters} />
+        <Route exact path="/characters/:movie" component={Characters} />
       </Switch>
     </div>
     </BrowserRouter>

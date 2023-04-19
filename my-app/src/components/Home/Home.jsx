@@ -23,11 +23,12 @@ export default function Home() {
     return(
         <div className={styles.containerHome}>
             <div className={styles.cards}>
-            { films.map((c) => (
+            { films.map((c, movie) => (
                 <Card
                 title={c.title}
                 episode_id={c.episode_id}
                 director={c.director}
+                movie={movie+1}
                 />
             )) }
             </div>
