@@ -5,13 +5,14 @@ import { getCharacters, filterCharactersEyeColor, filterCharactersGender } from 
 import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
+import gif from "./gifCharacters.gif"
 
 export default function Characters() {
   const dispatch = useDispatch();
   const allCharacters = useSelector((state) => state.characters);
   const { movie } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
-  const [charactersPerPage, setCharactersPerPage] = useState(6);
+  const [charactersPerPage, setCharactersPerPage] = useState(3);
   const indexOfLastCharacter = currentPage * charactersPerPage; //9
   const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage; //0
   const currentCharacters = allCharacters?.slice(
@@ -78,15 +79,15 @@ export default function Characters() {
           <option value="hermaphrodite">Hermaphrodite</option>
         </select>
       </div>
-
-      <div>
+{/* 
+      <div className={styles.divContainerPagination}>
             <Pagination
               charactersPerPage={charactersPerPage}
               allCharacters={allCharacters?.length}
               pagination={pagination}
               currentPage={currentPage}
             />
-          </div>
+          </div> */}
 
       
       {allCharacters.length === 0 ? (
@@ -95,15 +96,16 @@ export default function Characters() {
         <div className={styles.divCardsContainer}>
           {currentCharacters?.map((c) => (
             <div key={c.name} className={styles.cardComponent}>
+              <img src={gif}></img>
               <h3>Name: {c.name}.</h3>
-              <h4>Eye color: {c.eye_color}.</h4>
-              <h4>Gender: {c.gender}.</h4>
+              <h3>Eye color: {c.eye_color}.</h3>
+              <h3>Gender: {c.gender}.</h3>
             </div>
           ))}
         </div>
       )}
 
-<div>
+<div className={styles.divContainerPagination}>
             <Pagination
               charactersPerPage={charactersPerPage}
               allCharacters={allCharacters?.length}

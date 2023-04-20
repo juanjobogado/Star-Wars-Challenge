@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pagination.module.css";
+import styles from "./Pagination.module.css";
 
 export default function Pagination({
   charactersPerPage,
@@ -17,7 +17,7 @@ export default function Pagination({
   }
 
   return (
-    <div className="btnPag">
+    <div className={styles.btnPag}>
       <button
         onClick={() =>
           pagination(currentPage === 1 ? pageNumbers.length : currentPage - 1)

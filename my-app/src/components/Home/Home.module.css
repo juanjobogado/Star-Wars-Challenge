@@ -7,10 +7,22 @@
   
   
   .cards {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 80px;
+    margin-top: 60px; */
+
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    grid-gap: 80px;
     margin-top: 60px;
+    position: relative;
+    max-width: 1200px; /* ancho máximo de las tarjetas */
+
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 80px;
+    margin-top: 60px;  ----> esto para el responsive en movil*/ 
   }
 
   .divBtnBackHome{
@@ -35,6 +47,10 @@
     background-color: #000000;
     color: #feda4a;
   } 
+
+  .divContainerPagination{
+    margin-top: 50px;
+  }
   
   @media screen and (max-width: 960px) {
     .card {
