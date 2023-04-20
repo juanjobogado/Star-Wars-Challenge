@@ -1,13 +1,54 @@
+:root {
+  --main: #ffb13a;
+  --font: 'Roboto', 'Oxygen', sans-serif;
+}
+
+html {
+  font-size: 10px;
+} 
+
+body{
+  overflow: hidden;
+  background-color: black;
+  background-image: url(http://untroubled.org/backgrounds/space/stars.gif);
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  margin: 0;
+  color: white;
+}
+
+.h2Landing {
+  text-align: center;
+  margin: 0 0 60px 0;
+  font-size: 8rem;
+  font-family: "Star Jedi", "Droid Sans", arial, verdana, sans-serif;
+  color: #FFE81F;
+  text-shadow: 3px 3px #DFBB06;
+  }
+
+.pLanding{
+font-size: 3rem;
+line-height: 6rem;
+margin-bottom: 20px;
+font-family: "Droid Sans", arial, verdana, sans-serif;
+color: #feda4a; /* Star Wars yellow */
+}
+
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+  padding: 40px;
+  text-align: justify;
+  margin: 0 auto;
+  margin-top: -10px;
+  letter-spacing: 1.5px;
+  max-width: 1080px;
+  height: 800px;
+  transform: perspective(200px) rotateX(14deg);
+  animation: intro 25s linear infinite;
   }
-  
-  header {
-    margin-bottom: 2rem;
+
+  .container :is(h2, p) {
+    color: var(--main);
   }
+ 
   
   .btn {
     display: flex;
@@ -18,13 +59,32 @@
     font-size: 1.2rem;
     padding: 0.8rem 2rem;
     border-radius: 0.5rem;
-    background-color: #0074d9;
-    color: #fff;
-    border: none;
+    background-color: #feda4a;
+    color: #000000;
+    border: 2px solid #000000;
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
   
   .btnLan:hover {
-    background-color: #0063aa;
+    background-color: #000000;
+    color: #feda4a;
   }
+  
+
+   /* @keyframes intro {
+    0% {
+      transform: perspective(200px) rotateX(14deg) translateY(800px);
+      opacity: 1;
+    }
+    60% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: perspective(200px) rotateX(20deg) translateY(-1000px);
+      opacity: 0;
+    }
+  } */
+
   

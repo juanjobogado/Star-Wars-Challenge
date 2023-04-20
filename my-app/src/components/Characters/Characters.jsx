@@ -3,6 +3,7 @@ import styles from "./Characters.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters, filterCharactersEyeColor, filterCharactersGender } from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 export default function Characters() {
   const dispatch = useDispatch();
@@ -59,15 +60,20 @@ export default function Characters() {
         </select>
       </div>
 
-      <div className={styles.cards}>
-        {characters?.map((c) => (
-          <div key={c.name}>
-            <h3>Name: {c.name}.</h3>
-            <h4>Eye color: {c.eye_color}.</h4>
-            <h4>Gender: {c.gender}.</h4>
-          </div>
-        ))}
-      </div>
+      
+      {characters.length === 0 ? (
+        <Loading />
+      ) : (
+        <div className={styles.cards}>
+          {characters?.map((c) => (
+            <div key={c.name}>
+              <h3>Name: {c.name}.</h3>
+              <h4>Eye color: {c.eye_color}.</h4>
+              <h4>Gender: {c.gender}.</h4>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
