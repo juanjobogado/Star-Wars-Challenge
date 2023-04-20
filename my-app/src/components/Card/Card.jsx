@@ -9,7 +9,7 @@ export default function Card({ title, episode_id, director, movie }){
                 <h3>Movie title: {title}.</h3>
                 <h3>Episode: {episode_id}.</h3>
                 <h3>Director: {director}.</h3>
-                <Link to={`/characters/${movie}/`}>
+                <Link to={`/characters/${movie}?t=${Date.now()}`}>
                     <button>Characters</button>
                 </Link>
             </div>

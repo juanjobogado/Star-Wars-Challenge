@@ -23,11 +23,15 @@ export default function Characters() {
     setCurrentPage(pageNumber);
   };
 
-  useEffect(() => {
-    if (!allCharacters.length) {
+  useEffect( () => {
       dispatch(getCharacters(movie));
-    }
-  }, [allCharacters.length, dispatch, movie]);
+  }, [dispatch, movie]);
+  
+  useEffect(() => {
+    return () => {
+      dispatch({ type: "CLEAR_CHARACTERS" });
+    };
+  }, [dispatch]);
 
   function handleFilterEyeColor(e) {
     dispatch(filterCharactersEyeColor(e.target.value));

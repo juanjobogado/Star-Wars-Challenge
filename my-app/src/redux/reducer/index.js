@@ -1,4 +1,4 @@
-import { GET_CHARACTERS, GET_FILMS, FILTER_CHARACTERS_EYECOLOR, FILTER_CHARACTERS_GENDER} from "../actions/actions";
+import { GET_CHARACTERS, GET_FILMS, FILTER_CHARACTERS_EYECOLOR, FILTER_CHARACTERS_GENDER, CLEAR_CHARACTERS} from "../actions/actions";
 
 const initialState = {
 films : [],
@@ -50,6 +50,11 @@ export default function reducer(state = initialState, action){
             return {
                 ...state,
                 characters: selectedCharacter2
+            };
+        case CLEAR_CHARACTERS: 
+            return {
+                ...state,
+                characters: [],
             }
 
         default:
