@@ -1,0 +1,53 @@
+.cardComponent {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(253, 253, 238);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border: 5px solid #feda4a;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    font-family: "Star Jedi", sans-serif;
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+button {
+    /* background-color: yellow;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer; */
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #feda4a;
+    color: #000000;
+    border: 2px solid #000000;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background-color: #000000;
+    color: #feda4a;
+}
+
+@media (max-width: 768px) {
+    /* si el ancho de la pantalla es menor a 768px, el borde se hace mas delgado */
+    .cardComponent {
+      border-width: 2px;
+    }
+  }

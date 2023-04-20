@@ -33,7 +33,7 @@ font-family: "Droid Sans", arial, verdana, sans-serif;
 color: #feda4a; /* Star Wars yellow */
 }
 
-.container {
+ .container {
   padding: 40px;
   text-align: justify;
   margin: 0 auto;
@@ -48,8 +48,7 @@ color: #feda4a; /* Star Wars yellow */
   .container :is(h2, p) {
     color: var(--main);
   }
- 
-  
+
   .btn {
     display: flex;
     justify-content: center;
@@ -70,10 +69,10 @@ color: #feda4a; /* Star Wars yellow */
   .btnLan:hover {
     background-color: #000000;
     color: #feda4a;
-  }
+  } 
   
 
-   /* @keyframes intro {
+    /* @keyframes intro {
     0% {
       transform: perspective(200px) rotateX(14deg) translateY(800px);
       opacity: 1;
@@ -86,5 +85,3 @@ color: #feda4a; /* Star Wars yellow */
       opacity: 0;
     }
   } */
-
-  

@@ -1,34 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Characters.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCharacters, filterCharactersEyeColor, filterCharactersGender } from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import Pagination from "../Pagination/Pagination";
 
 export default function Characters() {
   const dispatch = useDispatch();
-  const characters = useSelector((state) => state.characters);
+  const allCharacters = useSelector((state) => state.characters);
   const { movie } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [charactersPerPage, setCharactersPerPage] = useState(6);
+  const indexOfLastCharacter = currentPage * charactersPerPage; //9
+  const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage; //0
+  const currentCharacters = allCharacters?.slice(
+    indexOfFirstCharacter,
+    indexOfLastCharacter
+  );
+
+  const pagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
-    if (!characters.length) {
+    if (!allCharacters.length) {
       dispatch(getCharacters(movie));
     }
-  }, [characters.length, dispatch, movie]);
+  }, [allCharacters.length, dispatch, movie]);
 
   function handleFilterEyeColor(e) {
     dispatch(filterCharactersEyeColor(e.target.value));
+    setCurrentPage(1);
   }
 
   function handleFilterGender(e) {
     dispatch(filterCharactersGender(e.target.value));
+    setCurrentPage(1);
   }
 
   return (
     <div className={styles.containerCharacters}>
-      <div className={styles.header}>
+      <div className={styles.divBtnBackCharacters}>
         <Link to="/home">
-          <button className={styles.backButton}>Back</button>
+          <button className={styles.backButtonCharacters}>Back</button>
         </Link>
       </div>
 
@@ -60,13 +75,22 @@ export default function Characters() {
         </select>
       </div>
 
+      <div>
+            <Pagination
+              charactersPerPage={charactersPerPage}
+              allCharacters={allCharacters?.length}
+              pagination={pagination}
+              currentPage={currentPage}
+            />
+          </div>
+
       
-      {characters.length === 0 ? (
+      {allCharacters.length === 0 ? (
         <Loading />
       ) : (
-        <div className={styles.cards}>
-          {characters?.map((c) => (
-            <div key={c.name}>
+        <div className={styles.divCardsContainer}>
+          {currentCharacters?.map((c) => (
+            <div key={c.name} className={styles.cardComponent}>
               <h3>Name: {c.name}.</h3>
               <h4>Eye color: {c.eye_color}.</h4>
               <h4>Gender: {c.gender}.</h4>
@@ -74,6 +98,15 @@ export default function Characters() {
           ))}
         </div>
       )}
+
+<div>
+            <Pagination
+              charactersPerPage={charactersPerPage}
+              allCharacters={allCharacters?.length}
+              pagination={pagination}
+              currentPage={currentPage}
+            />
+          </div>
     </div>
   );
 }

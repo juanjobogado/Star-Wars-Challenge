@@ -21,21 +21,21 @@ function renderMovies(films) {
 export default function Home() {
     const dispatch = useDispatch();
     const films = useSelector((state) => state.films)
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if(!films.length){
-            console.log("entra")
             dispatch(getFilms())
         }
     }, [dispatch, films.length])
 
     return (
         <div className={styles.containerHome}>
+          <div className={styles.divBtnBackHome}>
           <Link to="/">
-            <button className={styles.backButton}>Back</button>
+            <button className={styles.backButtonHome}>Back</button>
           </Link>
-          {isLoading ? (
+          </div>
+          {films.length === 0 ? (
         <Loading />
       ) : (
         <div className={styles.cards}>{renderMovies(films)}</div>
