@@ -123,7 +123,8 @@ export default function Home() {
         episode_id={film.episode_id}
         director={film.director}
         movie={movie + 1}
-        image ={images[imageIndex]}
+        image ={images[imageIndex]
+        }
       />
     );
   })}

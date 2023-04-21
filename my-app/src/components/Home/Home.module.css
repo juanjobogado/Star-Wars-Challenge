@@ -7,22 +7,13 @@
   
   
   .cards {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 80px;
-    margin-top: 60px; */
-
     display: grid;
     grid-template-columns: repeat(3, 350px);
     grid-gap: 80px;
     margin-top: 60px;
     position: relative;
-    max-width: 1200px; /* ancho máximo de las tarjetas */
-
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 80px;
-    margin-top: 60px;  ----> esto para el responsive en movil*/ 
+    max-width: 1200px;
+     padding-bottom: 40px;
   }
 
   .divBtnBackHome{
@@ -49,19 +40,95 @@
   } 
 
   .divContainerPagination{
+    margin-top: 10px;
+    margin-bottom: 40px; /* agregar margin inferior para mostrar todo el contenido */
+  max-width: 1200px; /* ancho máximo de la paginación */
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  }
+  
+  @media (max-width: 1200px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 800px;
+      justify-content: center;
+      margin-top: 40px;
+      grid-gap: 40px;
+      overflow: auto;
+    }
+  }
+  
+  /* Media Queries para celulares */
+
+@media screen and (max-width: 768px) {
+  .cards {
+    overflow: auto;
+    max-height: 500px;
+
+  }
+  ::-webkit-scrollbar {
+    width: 8.7px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #feda4a;
+    border-radius: 10px;
+  }
+
+  .divBtnBackHome {
+    margin-left: -250px;
+    margin-top: 20px;
+  }
+
+  .backButtonHome {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    margin-left: 10px;
+  }
+
+  .divContainerPagination {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    margin: 0 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(1, 100%); /* cambiar a 1 columna */
+    padding-bottom: 0; /* eliminar padding inferior */
+    margin-bottom: 0; /* eliminar margin inferior */
+    grid-gap: 20px;
+    margin-top: 30px;
+  }
+
+  .divContainerPagination {
+    max-width: 100%; /* ajustar ancho máximo a pantalla completa */
+    padding: 0 20px; /* agregar padding lateral */
     margin-top: 50px;
   }
-  
-  @media screen and (max-width: 960px) {
-    .card {
-      width: 45%;
-    }
+
+  .backButtonHome {
+    font-size: 1rem; /* reducir tamaño de fuente */
+    padding: 0.5rem 1.5rem; /* reducir padding */
+
   }
-  
-  @media screen and (max-width: 600px) {
-    .card {
-      width: 100%;
-    }
-  }
-  
-  
+}

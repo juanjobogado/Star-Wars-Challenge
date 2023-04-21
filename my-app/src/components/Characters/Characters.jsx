@@ -5,7 +5,7 @@ import { getCharacters, filterCharactersEyeColor, filterCharactersGender } from 
 import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
-import gif from "./gifCharacters.gif"
+import gif from "../images and gifs/charactersStarWars.gif"
 
 export default function Characters() {
   const dispatch = useDispatch();
