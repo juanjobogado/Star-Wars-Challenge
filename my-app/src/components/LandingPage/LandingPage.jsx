@@ -38,8 +38,8 @@ export default function LandingPage() {
         <p className={styles.pLanding}>
           May the force be with you on this amazing adventure! Discover
           everything about Star Wars movies and their characters on our web
-          application, where you can explore SWAPI data and filter by gender
-          and eye color. Be a true Jedi in navigating our page and enjoy an
+          application, where you can explore SWAPI data and filter by gender and
+          eye color. Be a true Jedi in navigating our page and enjoy an
           incredibly responsive experience!
         </p>
       </header>

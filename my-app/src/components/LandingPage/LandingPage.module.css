@@ -1,127 +1,127 @@
 :root {
-    --main: #ffb13a;
-    --font: 'Roboto', 'Oxygen', sans-serif;
-  }
-  
-  html {
-    font-size: 10px;
-  } 
-  
-  body{
-    overflow: hidden;
-    background-color: black;
-    background-image: url(http://untroubled.org/backgrounds/space/stars.gif);
-    font-family: "Droid Sans", arial, verdana, sans-serif;
-    margin: 0;
-    color: white;
-  }
-  
-  .h2Landing {
-    text-align: center;
-    margin: 0 0 60px 0;
-    font-size: 8rem;
-    font-family: "Star Jedi", "Droid Sans", arial, verdana, sans-serif;
-    color: #FFE81F;
-    text-shadow: 3px 3px #DFBB06;
-  }
-  
-  .pLanding{
-    font-size: 3rem;
-    line-height: 6rem;
-    margin-bottom: 20px;
-    font-family: "Droid Sans", arial, verdana, sans-serif;
-    color: #feda4a; /* Star Wars yellow */
-  }
-  
+  --main: #ffb13a;
+  --font: "Roboto", "Oxygen", sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  overflow: hidden;
+  background-color: black;
+  background-image: url(http://untroubled.org/backgrounds/space/stars.gif);
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  margin: 0;
+  color: white;
+}
+
+.h2Landing {
+  text-align: center;
+  margin: 0 0 60px 0;
+  font-size: 8rem;
+  font-family: "Star Jedi", "Droid Sans", arial, verdana, sans-serif;
+  color: #ffe81f;
+  text-shadow: 3px 3px #dfbb06;
+}
+
+.pLanding {
+  font-size: 3rem;
+  line-height: 6rem;
+  margin-bottom: 20px;
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  color: #feda4a;
+}
+
+.container {
+  padding: 40px;
+  text-align: justify;
+  margin: 0 auto;
+  margin-top: -10px;
+  letter-spacing: 1.5px;
+  max-width: 1080px;
+  height: 800px;
+  transform: perspective(200px) rotateX(14deg);
+  animation: intro 10s linear;
+}
+
+.container img {
+  width: 350px;
+  margin-top: -200px;
+  margin-left: 350px;
+}
+
+.container :is(p) {
+  color: var(--main);
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btnLan {
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 0.5rem;
+  background-color: #feda4a;
+  color: #000000;
+  border: 2px solid #000000;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btnLan:hover {
+  background-color: #000000;
+  color: #feda4a;
+}
+
+@media screen and (max-width: 768px) {
   .container {
-    padding: 40px;
-    text-align: justify;
-    margin: 0 auto;
-    margin-top: -10px;
-    letter-spacing: 1.5px;
-    max-width: 1080px;
-    height: 800px;
-    transform: perspective(200px) rotateX(14deg);
-    animation: intro 10s linear;
+    height: auto;
+    transform: none;
+    animation: none;
+    padding: 20px;
   }
-  
-  .container img{
-    width: 350px;
-    margin-top: -200px;
-    margin-left: 350px;
+
+  .container img {
+    width: 150px;
+    height: 150px;
+    margin-left: 95px;
+    margin-top: 1px;
   }
-  
-  .container :is(p) {
-    color: var(--main);
+
+  .h2Landing {
+    font-size: 5rem;
+    margin-bottom: 20px;
   }
-  
-  .btn {
-    display: flex;
-    justify-content: center;
+
+  .pLanding {
+    font-size: 2rem;
+    line-height: 4rem;
+    margin-top: -5px;
+    margin-bottom: 20px;
   }
-    
+
   .btnLan {
     font-size: 1.2rem;
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 0.5rem;
-    background-color: #feda4a;
-    color: #000000;
-    border: 2px solid #000000;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
-    
-  .btnLan:hover {
-    background-color: #000000;
-    color: #feda4a;
-  } 
-    
-  @media screen and (max-width: 768px) {
-    .container {
-      height: auto;
-      transform: none;
-      animation: none;
-      padding: 20px;
-    }
-      
-    .container img{
-      width: 150px;
-      height: 150px;
-      margin-left: 95px;
-      margin-top: 1px;
-    }
-  
-    .h2Landing {
-      font-size: 5rem;
-      margin-bottom: 20px;
-    }
-    
-    .pLanding {
-      font-size: 2rem;
-      line-height: 4rem;
-      margin-top: -5px;
-      margin-bottom: 20px;
-    }
-    
-    .btnLan {
-      font-size: 1.2rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 0.5rem;
-      letter-spacing: 1px;
-    }
+}
+
+@keyframes intro {
+  0% {
+    transform: perspective(300px) rotateX(14deg) translateY(800px);
+    opacity: 1;
   }
-    
-  @keyframes intro {
-    0% {
-      transform: perspective(300px) rotateX(14deg) translateY(800px);
-      opacity: 1;
-    }
-    60% {
-      opacity: 1;
-    }
-    100% {
-      transform: perspective(300px) rotateX(20deg) translateY(0px);
-      opacity: 1;
-    }
+  60% {
+    opacity: 1;
   }
+  100% {
+    transform: perspective(300px) rotateX(20deg) translateY(0px);
+    opacity: 1;
+  }
+}
