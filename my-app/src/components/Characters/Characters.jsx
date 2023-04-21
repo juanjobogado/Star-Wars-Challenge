@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Characters.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacters, filterCharactersEyeColor, filterCharactersGender } from "../../redux/actions";
+import {
+  getCharacters,
+  filterCharactersEyeColor,
+  filterCharactersGender,
+} from "../../redux/actions";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import Pagination from "../Pagination/Pagination";
-import gif from "../images and gifs/charactersStarWars.gif"
+import gif from "../images and gifs/charactersStarWars.gif";
 
 export default function Characters() {
   const dispatch = useDispatch();
@@ -24,10 +28,10 @@ export default function Characters() {
     setCurrentPage(pageNumber);
   };
 
-  useEffect( () => {
-      dispatch(getCharacters(movie));
+  useEffect(() => {
+    dispatch(getCharacters(movie));
   }, [dispatch, movie]);
-  
+
   useEffect(() => {
     return () => {
       dispatch({ type: "CLEAR_CHARACTERS" });
@@ -79,17 +83,7 @@ export default function Characters() {
           <option value="hermaphrodite">Hermaphrodite</option>
         </select>
       </div>
-{/* 
-      <div className={styles.divContainerPagination}>
-            <Pagination
-              charactersPerPage={charactersPerPage}
-              allCharacters={allCharacters?.length}
-              pagination={pagination}
-              currentPage={currentPage}
-            />
-          </div> */}
 
-      
       {allCharacters.length === 0 ? (
         <Loading />
       ) : (
@@ -105,14 +99,14 @@ export default function Characters() {
         </div>
       )}
 
-<div className={styles.divContainerPagination}>
-            <Pagination
-              charactersPerPage={charactersPerPage}
-              allCharacters={allCharacters?.length}
-              pagination={pagination}
-              currentPage={currentPage}
-            />
-          </div>
+      <div className={styles.divContainerPagination}>
+        <Pagination
+          charactersPerPage={charactersPerPage}
+          allCharacters={allCharacters?.length}
+          pagination={pagination}
+          currentPage={currentPage}
+        />
+      </div>
     </div>
   );
 }
